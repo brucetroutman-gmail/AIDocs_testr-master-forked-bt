@@ -41,7 +41,6 @@ models=(
     "gemma3:4b"
     "granite3.3:8b"
     "internlm2:latest"
-    "llama3.2:3b"
     "mistral:7b"
     "mistral:7b-instruct"
     "phi4-mini"

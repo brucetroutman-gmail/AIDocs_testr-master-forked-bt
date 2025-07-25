@@ -516,21 +516,9 @@ E. Setup the Ollama and Chroma Database
     </details>
     
  3. Make sure the following Ollama models are downloaded to your PC
-    - qwen2:0.5b           352 MB
-    - qwen2:1.5b           934 MB
-    - gemma2:2b            1.6 GB
-    - granite3.1-dense:2b  1.6 GB   
-    - llama3.2:3b          2.0 GB   
-    - phi3                 2.2 GB   
-    
-    if not, in the VSCode terminal, run `ollama pull {modelname}`
-    <details><summary><code>ollama pull qwen2:0.5b</code></summary>
-      <img      src="docs/appinfo/d00_AIDocs_testR/IMGs/d00-007a_Ollama-pull-qwen2;0.5.png" width="720px" style="margin-top: 10px;"></img>    
-    </details>
-
-
-</details>
-
+  
+    From Terminal in repos folder:  ait models update
+  
 <!-- ---------------------------------------------------------------------------------- -->
 
 <details><summary style="font-size:16px; color:blue">
