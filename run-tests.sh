@@ -30,7 +30,7 @@
 
      export PC_CODE=""
 
-     export SEARCH_MODEL="qwen2:0.5b"           # .(50514.01.2 RAM Override models)
+#     export SEARCH_MODEL="llama3.2:3b"           # .(50514.01.2 RAM Override models)
      export SCORING_MODEL="gemma2:2b-instruct-q4_0" # .(50514.01.2)
 #    export SCORING_MODEL="gemma2:2b"           # .(50514.01.3)
 
@@ -39,8 +39,8 @@
      export SCORING_SECTIONS="Parms"            # .(50521.01.3)
 #    export SCORING_SECTIONS="All"              # .(50521.01.4)
 
-#    export SYSTEM_PROMPT="runtest: Summarize the information provided and answer the user's prompt accordingly."
-#    export USER_PROMPT="runtest: What is it all about?"
+     export SYSTEM_PROMPT="" # runtest: You are a scholar of US history. Respond in a detailed and organized manner."
+     export USER_PROMPT="" # runtest: What were the top 5 reasons for the US Civil War?"
      export RAG_COLLECTIONS="s13_apple-ipad-txt"
 
 ##SRCE     +====================+===============================================+

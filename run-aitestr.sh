@@ -71,7 +71,7 @@
    if [ "${2:0:3}"    == "lis"   ]; then aCmd="list    "; aApp=$1;  shift; b=1; fi      # .(50516.07.2 RAM Do list for each app)
 
    if [ "${1:0:3}"    == "upd"   ]; then aCmd="update";                    b=0; fi      # .(50617.02.1 RAM Add command update)
-   if [ "${1:0:3}"    == "mod"   ]; then aCmd="models";                    b=0; fi      # .(50617.03.1 RAM Add command models) 
+#   if [ "${1:0:3}"    == "mod"   ]; then aCmd="models";                    b=0; fi      # .(50617.03.1 RAM Add command models) 
 
    if [ "${1:0:3}"    == "lan"   ]; then aCmd="lancedb "; aApp=s13; shift; b=1;         # .(50604.02.1)
       if [ "${1:0:3}" == "imp"   ]; then aCmd="import  "; aApp=s13; shift; b=1; fi;     # .(50604.02.2)
@@ -85,6 +85,13 @@
    if [ "${1:0:3}"    == "sql"   ]; then aCmd="sqlite  "; aApp=s13; shift; b=1; fi      # .(50505.06.1)
 
    if [ "${1:0:3}"    == "exa"   ]; then aCmd="example "; aApp=s13; shift; b=1; fi      # .(50505.04.2 RAM Add example)
+
+   if [ "${aAIT:0:3}" == "mod"   ]; then 
+      if [ "${1:0:3}" == "upd"   ]; then aCmd="modupd "; fi
+      if [ "${1:0:3}" == "lis"   ]; then aCmd="modlis "; fi
+      if [ "${1:0:3}" == "rem"   ]; then aCmd="modrem "; fi
+   fi
+
    if [ "${aApp}"     == ""      ]; then                  aApp=$1;  shift; fi           # .(50420.01b.7)
                                          aDir=""; aTests="$@"                           # .(50429.05.1)
 #  if [ "${aApp:0:3}" == "s11"   ]; then aDir="server1/s11_search-app";     shift; fi   ##.(50429.05.2).(50518.01.1)
@@ -167,23 +174,30 @@
 #*  --- --  --------------  =  ------------------------------------------------------  *#  
 
    if [ "${aCmd}" == "update" ]; then                                                   # .(50617.02.3 RAM Add update command Beg)
-      aDir="$( pwd )" # ..Repos/AIDocs_/test1-robin'
+      aDir="$( pwd )" # ..Repos/????AIDocs_/test1-robin'
       gitr update "$1"
       if [ "${OS:0:3}" != "Win" ]; then echo ""; fi; exit 
       fi                                                                                # .(50617.02.3 End 
 #*  --- --  --------------  =  ------------------------------------------------------  *#  
 
-   if [ "${aCmd}" == "models"  ]; then                                                  # .(50617.03.3 RAM Add models command Beg              
-     if [ "$1" == "update"     ]; then echo "run updateAIDocsMmodels.sh";  
+   if [ "${aCmd}" == "modupd "  ]; then                                                  # .(50617.03.3 RAM Add models command Beg              
+     bash ./utilities/updateAIDocsModels.sh;  
      if [ "${OS:0:3}" != "Win" ]; then echo ""; fi; exit  
-       fi    
+     fi    
+   
+   if [ "${aCmd}" == "modrem "  ]; then                                                  # .(50617.03.3 RAM Add models command Beg              
+     bash ./utilities/removeAIDocsModels.sh;  
+     if [ "${OS:0:3}" != "Win" ]; then echo ""; fi; exit  
+     fi    
+   
+   if [ "${aCmd}" == "modlis "  ]; then                                                  # .(50617.03.3 RAM Add models command Beg              
              aModel="$1"; if [ "$1" == "" ]; then aModel="ollama"; fi  
      echo  " run OllamaModels_u1.04.mjs '$1'" 
 #    if [ "${aModel}" == "ollama"  ]; then node "./server1/components/models/OllamaModels_u1.04.mjs";  fi  
 #    if [ "${aModel}" == "bedrock" ]; then node "./server1/components/models/BedrockModels_u1.03.mjs"; fi  
 #    if [ "${aModel}" == "claude"  ]; then node "./server1/components/models/ClaudeModels_u1.03.mjs";  fi  
      if [ "${OS:0:3}" != "Win" ]; then echo ""; fi; exit  
-      fi                                                                                # .(50617.03.3 End  
+     fi                                                                                # .(50617.03.3 End  
 #*  --- --  --------------  =  ------------------------------------------------------  *#  
 
     source "./run-tests.sh"                                                             # .(50513.02.1 RAM Get common parameters from __basedir/run-tests.sh)

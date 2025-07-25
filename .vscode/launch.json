@@ -4,8 +4,28 @@
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
+
+    {
+      "type": "bashdb",
+      "request": "launch",
+      "name": "Bash-Debug (select script from list of sh files)",
+      "cwd": "${workspaceFolder}",
+      "program": "${command:SelectScriptName}",
+      "args": [],
+      "env": {}
+    },
 // ----------------------------------------------------------------------------
     {
+      "type": "bashdb",
+      "request": "launch",
+      "name": "Debug aitestr with Params",
+      "program": "run-aitestr.sh",
+      "args": ["models", "update"],
+      "env": {}
+    },
+
+// ----------------------------------------------------------------------------
+{
       "name"     : "Current Node.js Script",
       "type"     : "node",
       "request"  : "launch",
