@@ -20,7 +20,7 @@
       "request": "launch",
       "name": "Debug aitestr with Params",
       "program": "run-aitestr.sh",
-      "args": ["models", "update"],
+      "args": ["models", "list"],
       "env": {}
     },
 

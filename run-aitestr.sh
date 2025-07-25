@@ -67,8 +67,8 @@
    if [ "${1:0:3}"    == "ver"   ]; then  ._2/MWTs/AIC00_getVersion.sh;  exit;  fi      # .(50420.01b.2)
    if [ "${1:0:3}"    == "gen"   ]; then aCmd="generate"; aApp=$2;  shift; b=2; shift; b=2; fi # .(50420.01b.3)
    if [ "${2:0:3}"    == "gen"   ]; then aCmd="generate"; aApp=$1;  shift; b=2; shift; b=2; fi # .(50420.01b.5)
-   if [ "${1:0:3}"    == "lis"   ]; then aCmd="list    "; aApp=$2;  shift; b=1; fi      # .(50516.07.1 RAM Was s13).(50420.01b.4)
-   if [ "${2:0:3}"    == "lis"   ]; then aCmd="list    "; aApp=$1;  shift; b=1; fi      # .(50516.07.2 RAM Do list for each app)
+#   if [ "${1:0:3}"    == "lis"   ]; then aCmd="list    "; aApp=$2;  shift; b=1; fi      # .(50516.07.1 RAM Was s13).(50420.01b.4)
+#   if [ "${2:0:3}"    == "lis"   ]; then aCmd="list    "; aApp=$1;  shift; b=1; fi      # .(50516.07.2 RAM Do list for each app)
 
    if [ "${1:0:3}"    == "upd"   ]; then aCmd="update";                    b=0; fi      # .(50617.02.1 RAM Add command update)
 #   if [ "${1:0:3}"    == "mod"   ]; then aCmd="models";                    b=0; fi      # .(50617.03.1 RAM Add command models) 
@@ -192,8 +192,8 @@
    
    if [ "${aCmd}" == "modlis "  ]; then                                                  # .(50617.03.3 RAM Add models command Beg              
              aModel="$1"; if [ "$1" == "" ]; then aModel="ollama"; fi  
-     echo  " run OllamaModels_u1.04.mjs '$1'" 
-#    if [ "${aModel}" == "ollama"  ]; then node "./server1/components/models/OllamaModels_u1.04.mjs";  fi  
+      echo  " run ./server1/components/models/OllamaModels_u1.04.mjs '$1'" 
+     if [ "${aModel}" == "ollama"  ]; then node "./server1/components/models/OllamaModels_u1.04.mjs";  fi  
 #    if [ "${aModel}" == "bedrock" ]; then node "./server1/components/models/BedrockModels_u1.03.mjs"; fi  
 #    if [ "${aModel}" == "claude"  ]; then node "./server1/components/models/ClaudeModels_u1.03.mjs";  fi  
      if [ "${OS:0:3}" != "Win" ]; then echo ""; fi; exit  
