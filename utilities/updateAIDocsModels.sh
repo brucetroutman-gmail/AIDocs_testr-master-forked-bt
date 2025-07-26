@@ -37,6 +37,7 @@ models=(
     "qwen2:0.5b"
     "qwen2:1.5b"
     "gemma2:2b-instruct-q4_0"
+    "gemma3:1b-it-q4_K_M"
     "granite3.3:2b"
     "llama3.2:3b"
     "nomic-embed-text"

@@ -1,4 +1,4 @@
-atio#!/bin/bash
+#!/bin/bash
 
 echo !!!!!!!!! One
 bash run-tests-all-models-gen-kno.sh

@@ -89,7 +89,6 @@
    if [ "${aAIT:0:3}" == "mod"   ]; then 
       if [ "${1:0:3}" == "upd"   ]; then aCmd="modupd "; fi
       if [ "${1:0:3}" == "lis"   ]; then aCmd="modlis "; fi
-      if [ "${1:0:3}" == "rem"   ]; then aCmd="modrem "; fi
    fi
 
    if [ "${aApp}"     == ""      ]; then                  aApp=$1;  shift; fi           # .(50420.01b.7)
@@ -182,11 +181,6 @@
 
    if [ "${aCmd}" == "modupd "  ]; then                                                  # .(50617.03.3 RAM Add models command Beg              
      bash ./utilities/updateAIDocsModels.sh;  
-     if [ "${OS:0:3}" != "Win" ]; then echo ""; fi; exit  
-     fi    
-   
-   if [ "${aCmd}" == "modrem "  ]; then                                                  # .(50617.03.3 RAM Add models command Beg              
-     bash ./utilities/removeAIDocsModels.sh;  
      if [ "${OS:0:3}" != "Win" ]; then echo ""; fi; exit  
      fi    
    
